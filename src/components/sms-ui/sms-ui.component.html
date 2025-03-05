@@ -1,6 +1,11 @@
 <div class="min-h-screen bg-gray-100 flex items-center justify-center p-4">
   <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-    <h1 class="text-2xl font-bold text-orange-600 mb-6">To claim your play pack</h1>
+    <!-- Logo Section -->
+    <div class="flex justify-center mb-6">
+      <img class="mx-auto h-10 w-auto" src="/assets/images/%20belLogo.png" alt="Company Logo"> <!-- Adjust the height (h-16) as needed -->
+    </div>
+
+    <h1 class="text-xl font-bold text-orange-600 mb-6 text-center">To claim your play pack</h1>
 
     <form>
       <div class="mb-4">
@@ -19,15 +24,16 @@
       </div>
 
       <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="showroomCode">Showroom Code</label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="showroomCode" type="text" placeholder="Enter showroom code">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="showroomCode">Invoice No</label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="showroomCode" type="text" placeholder="Enter invoice no">
       </div>
 
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="captcha">Input Captcha</label>
         <div class="flex items-center">
           <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="captcha" type="text" placeholder="Enter captcha">
-          <span class="ml-2 text-orange-600 font-bold">7 4 3</span>
+          <span class="ml-2 text-orange-600 font-bold">{{ captchaCode }}</span>
+          <button (click)="generateCaptcha()" class="ml-2 text-orange-600 hover:text-orange-700">Refresh</button>
         </div>
       </div>
 
