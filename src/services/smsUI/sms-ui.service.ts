@@ -9,13 +9,21 @@ import {Observable} from 'rxjs';
 })
 export class SmsUIService {
 
-  private checkPurchaseURL =`${environment.apiBaseUrl}/sms/api/generate-otp/`
+  private checkPurchaseURL =`${environment.apiBaseUrl}/sms/api/generate-otp/`;
+  private verifyOTPURL =`${environment.apiBaseUrl}/sms/api/verify-otp/`
+
   private http = inject(HttpClient);
 
 
 
   checkPurchase(customer:any):Observable<any>{
     return this.http.post<{message:string}>(this.checkPurchaseURL,customer).pipe(
+      map((response)=>response)
+    )
+  }
+
+  verifyOtp(otp:any):Observable<any>{
+    return this.http.post<{message:string}>(this.verifyOTPURL,otp).pipe(
       map((response)=>response)
     )
   }

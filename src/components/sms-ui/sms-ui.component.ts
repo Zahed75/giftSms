@@ -1,18 +1,20 @@
-import {Component, inject, OnInit} from '@angular/core';
-import {Router, RouterLink} from '@angular/router';
-import {SmsUIService} from '../../services/smsUI/sms-ui.service';
-import {FormsModule} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SmsUIService } from '../../services/smsUI/sms-ui.service';
+import { SharedService } from '../../services/shared.service';
+import {FormsModule} from '@angular/forms'; // Import the shared service
 
 @Component({
   selector: 'app-sms-ui',
-  templateUrl: './sms-ui.component.html',
-  imports: [
-    FormsModule
+  imports:[
+    FormsModule,
+
   ],
-  styleUrl: './sms-ui.component.css'
+  templateUrl: './sms-ui.component.html',
+  styleUrls: ['./sms-ui.component.css']
 })
 export class SmsUIComponent implements OnInit {
-  captchaCode: string = ''; // Initialize with a default value
+  captchaCode: string = '';
   purchase: any = {
     customer_name: '',
     mobile_no: '',
@@ -20,17 +22,15 @@ export class SmsUIComponent implements OnInit {
     invoice_no: ''
   };
 
-
   constructor(
-    private smsUIService: SmsUIService
+    private smsUIService: SmsUIService,
+    private sharedService: SharedService, // Inject the shared service
+    private router: Router
   ) {
     this.generateCaptcha();
   }
 
-  router = inject(Router);
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   generateCaptcha(): void {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -42,14 +42,16 @@ export class SmsUIComponent implements OnInit {
     this.captchaCode = result;
   }
 
-
   onSubmit(): void {
     if (this.validateForm()) {
+      // Store the mobile number in the shared service
+      this.sharedService.setMobileNumber(this.purchase.mobile_no);
+
       this.smsUIService.checkPurchase(this.purchase).subscribe({
         next: (response) => {
           console.log('API Response:', response);
           alert('OTP sent successfully!');
-          this.router.navigate(['/verification']); // Navigate to the verification page
+          this.router.navigate(['/verification']); // Navigate to the OTP verification page
         },
         error: (error) => {
           console.error('API Error:', error);
@@ -69,6 +71,4 @@ export class SmsUIComponent implements OnInit {
       this.purchase.invoice_no
     );
   }
-
-
 }
