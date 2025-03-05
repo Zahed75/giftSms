@@ -10,8 +10,8 @@ import {Observable} from 'rxjs';
 export class SmsUIService {
 
   private checkPurchaseURL =`${environment.apiBaseUrl}/sms/api/generate-otp/`;
-  private verifyOTPURL =`${environment.apiBaseUrl}/sms/api/verify-otp/`
-
+  private verifyOTPURL =`${environment.apiBaseUrl}/sms/api/verify-otp/`;
+  private giftListURL =`${environment.apiBaseUrl}/sms/api/gifts/`;
   private http = inject(HttpClient);
 
 
@@ -26,6 +26,13 @@ export class SmsUIService {
     return this.http.post<{message:string}>(this.verifyOTPURL,otp).pipe(
       map((response)=>response)
     )
+  }
+
+
+  getGiftList(): Observable<any> {
+    return this.http.get<any[]>(this.giftListURL).pipe(
+      map((response) => response)
+    );
   }
 
 
