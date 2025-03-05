@@ -1,1 +1,46 @@
-<p>sms-ui works!</p>
+<div class="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+  <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+    <h1 class="text-2xl font-bold text-orange-600 mb-6">To claim your play pack</h1>
+
+    <form>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="customerName">Customer Name</label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="customerName" type="text" placeholder="Enter your name">
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="mobileNumber">Mobile Number</label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="mobileNumber" type="text" placeholder="Enter your mobile number">
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="productSerialCode">Product Serial Code</label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="productSerialCode" type="text" placeholder="Enter product serial code">
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="showroomCode">Showroom Code</label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="showroomCode" type="text" placeholder="Enter showroom code">
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="captcha">Input Captcha</label>
+        <div class="flex items-center">
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="captcha" type="text" placeholder="Enter captcha">
+          <span class="ml-2 text-orange-600 font-bold">7 4 3</span>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <label class="flex items-center">
+          <input type="checkbox" class="form-checkbox h-4 w-4 text-orange-600">
+          <span class="ml-2 text-gray-700 text-sm">I agree with terms and conditions</span>
+        </label>
+      </div>
+
+      <button class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full transition duration-300" type="button">
+        VERIFY PURCHASE
+      </button>
+    </form>
+  </div>
+</div>
