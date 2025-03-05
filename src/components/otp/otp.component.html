@@ -2,7 +2,7 @@
   <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
     <!-- Logo Section -->
     <div class="flex justify-center mb-6">
-      <img class="mx-auto h-10 w-auto" src="/assets/images/%20belLogo.png" alt="Company Logo"> <!-- Adjust the height (h-16) as needed -->
+      <img class="mx-auto h-10 w-auto" src="/assets/images/%20belLogo.png"  alt="Company Logo"> <!-- Adjust the height (h-16) as needed -->
     </div>
 
     <!-- Header -->
@@ -37,9 +37,13 @@
     <div class="text-center mb-6">
       <p class="text-gray-600 text-sm">
         Didn't receive the OTP?
-        <button class="text-orange-600 hover:text-orange-700 font-semibold">
+        <button *ngIf="!isResendDisabled; else timerBlock"
+                class="text-orange-600 hover:text-orange-700 font-semibold">
           Resend OTP
         </button>
+        <ng-template #timerBlock>
+          <span class="text-gray-500">Resend OTP in {{ timer }} seconds</span>
+        </ng-template>
       </p>
     </div>
 
