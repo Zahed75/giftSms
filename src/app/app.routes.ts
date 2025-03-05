@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import {SmsUIComponent} from '../components/sms-ui/sms-ui.component';
+import {OtpComponent} from '../components/otp/otp.component';
 
 export const routes: Routes = [
 
@@ -12,6 +13,14 @@ export const routes: Routes = [
   {
     path:'purchase',
     component:SmsUIComponent,
+    children:[
+
+    ]
+  },
+  {
+    path: 'verification',
+    component: OtpComponent,
+
   },
 
   {
