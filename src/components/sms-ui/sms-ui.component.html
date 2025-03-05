@@ -7,25 +7,25 @@
 
     <h1 class="text-xl font-bold text-orange-600 mb-6 text-center">To claim your play pack</h1>
 
-    <form>
+    <form (ngSubmit)="onSubmit()">
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="customerName">Customer Name</label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="customerName" type="text" placeholder="Enter your name">
+        <input [(ngModel)]="purchase.customer_name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="customerName" type="text" placeholder="Enter your name" name="customerName">
       </div>
 
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="mobileNumber">Mobile Number</label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="mobileNumber" type="text" placeholder="Enter your mobile number">
+        <input [(ngModel)]="purchase.mobile_no" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="mobileNumber" type="text" placeholder="Enter your mobile number" name="mobileNumber">
       </div>
 
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="productSerialCode">Product Serial Code</label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="productSerialCode" type="text" placeholder="Enter product serial code">
+        <input [(ngModel)]="purchase.product_code" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="productSerialCode" type="text" placeholder="Enter product serial code" name="productSerialCode">
       </div>
 
       <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="showroomCode">Invoice No</label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="showroomCode" type="text" placeholder="Enter invoice no">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="invoiceNo">Invoice No</label>
+        <input [(ngModel)]="purchase.invoice_no" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="invoiceNo" type="text" placeholder="Enter invoice no" name="invoiceNo">
       </div>
 
       <div class="mb-4">
@@ -33,18 +33,18 @@
         <div class="flex items-center">
           <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="captcha" type="text" placeholder="Enter captcha">
           <span class="ml-2 text-orange-600 font-bold">{{ captchaCode }}</span>
-          <button (click)="generateCaptcha()" class="ml-2 text-orange-600 hover:text-orange-700">Refresh</button>
+          <button (click)="generateCaptcha()" type="button" class="ml-2 text-orange-600 hover:text-orange-700">Refresh</button>
         </div>
       </div>
 
       <div class="mb-6">
         <label class="flex items-center">
-          <input type="checkbox" class="form-checkbox h-4 w-4 text-orange-600">
+          <input type="checkbox" class="form-checkbox h-4 w-4 text-orange-600" required>
           <span class="ml-2 text-gray-700 text-sm">I agree with terms and conditions</span>
         </label>
       </div>
 
-      <button class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full transition duration-300" type="button">
+      <button type="submit" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full transition duration-300">
         VERIFY PURCHASE
       </button>
     </form>
