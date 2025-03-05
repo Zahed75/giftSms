@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Global styles for the application */
+body {
+  @apply  text-black font-sans antialiased;
+  height: 100vh; /* Full viewport height */
+  width: 100vw;  /* Full viewport width */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  margin: 0; /* Reset margin */
+  padding: 0; /* Reset padding */
+  box-sizing: border-box; /* Ensure consistent box sizing */
+}
+
+html {
+  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+
+@layer components {
+  .container {
+    @apply max-w-[1440px] mx-auto px-3 md:px-5 lg:px-12 2xl:px-16;
+  }
+}
+
+
